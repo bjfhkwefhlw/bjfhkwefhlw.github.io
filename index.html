@@ -1,75 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confession to Janine</title>
-    <style>
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #ffffff;
-            border: 2px solid #000000;
-            z-index: 9999;
-        }
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9998;
-        }
-    </style>
-    <script>
-        function showPopup() {
-            document.getElementById("overlay").style.display = "block";
-            document.getElementById("popup").style.display = "block";
-        }
-
-        function hidePopup() {
-            document.getElementById("overlay").style.display = "none";
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
+	<title>secret no clue</title>
+	<script>
+		function showConfession() {
+			document.getElementById("confession").style.display = "block";
+		}
+	</script>
+	<style>
+		.popup {
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border: 1px solid black;
+			background-color: white;
+			padding: 20px;
+			text-align: center;
+			display: none;
+		}
+	</style>
 </head>
 <body>
-    <h1>Confession to Janine</h1>
-    <button onclick="showPopup()">Confess</button>
+	<div id="popup1" class="popup">
+		<h3>What if...</h3>
+		<p>Tayo talaga?</p>
+		<button onclick="document.getElementById('popup2').style.display = 'block'; this.style.display = 'none';">Yes</button>
+		<button onclick="document.getElementById('popup3').style.display = 'block'; this.style.display = 'none';">No</button>
+	</div>
 
-    <div id="overlay"></div>
-    <div id="popup">
-        <h2>What if...</h2>
-        <p>What if we were more than just friends?</p>
-        <p>What if we grab this chance?</p>
-        <p>What if we made each other happier than we ever thought possible?</p>
-        <p>What if we took a chance on love?</p>
-        <button onclick="hidePopup()">Close</button>
-    </div>
+	<div id="popup2" class="popup">
+		<h3>What if...</h3>
+		<p>Tayo talaga ang para sa isa't isa?</p>
+		<button onclick="document.getElementById('popup4').style.display = 'block'; this.style.display = 'none';">Yes</button>
+		<button onclick="document.getElementById('popup5').style.display = 'block'; this.style.display = 'none';">No</button>
+	</div>
+	<div id="popup4" class="popup">
+		<h3>What if...</h3>
+		<p>we try?</p>
+		<button onclick="showConfession(); this.style.display = 'none';">Yes</button>
+	</div> 
+	 <div id="confession" style="display: none;">
+		<h2>Dear Janine,</h2>
+		<p>I wanted to take this opportunity to confess my feelings for you. You are always on my mind, and I can't help but smile whenever I see you.</p>
+		<p>Life feels so much brighter when you're around, and I find myself longing to spend more time with you. Your laughter and the way you light up a room make my heart skip a beat.</p>
+		<p>Janine, would you do me the honor of being more than just friends? I can't imagine a future without you in it, and I would be overjoyed if you felt the same way.</p>
+		<p>Please let me know your thoughts, and I hope this confession doesn't affect our friendship negatively. You mean the world to me.</p>
+		<p>With all my love,</p>
+		<p>Kent</p>
+	</div>
 
-    <script>
-        function displayMessage() {
-            alert(`Dear Janine,
-
-I wanted to take this opportunity to confess my feelings for you. You are always on my mind, and I can't help but smile whenever I see you.
-
-Life feels so much brighter when you're around, and I find myself longing to spend more time with you. Your laughter and the way you light up a room make my heart skip a beat.
-
-Janine, would you do me the honor of being more than just friends? I can't imagine a future without you in it, and I would be overjoyed if you felt the same way.
-
-Please let me know your thoughts, and I hope this confession doesn't affect our friendship negatively. You mean the world to me.
-
-With all my love,
-
-Kent`);
-        }
-        window.addEventListener('load', function () {
-            setTimeout(showPopup, 2000); // Display the pop-up after 2 seconds
-        });
-    </script>
+	<script>
+		document.getElementById("popup1").style.display = "block";
+	</script>
 </body>
 </html>
