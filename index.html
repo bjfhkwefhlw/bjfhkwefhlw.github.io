@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>secret no clue</title>
-	<script>
-		function showConfession() {
-			document.getElementById("confession").style.display = "block";
-		}
-	</script>
-	<style>
-		.popup {
-			width: 300px;
-			height: 200px;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			border: 1px solid black;
-			background-color: white;
-			padding: 20px;
-			text-align: center;
-			display: none;
-		}
-	</style>
+    <title>secret no clue</title>
+    <style>
+        body {
+            background-color: beige;
+            background-size: cover;
+            text-align: center;
+            font-family: Times new Roman;
+            padding-top: 100px;
+        }
+
+        .popup {
+            width: 200px;
+            height: 200px;
+            background-color: lavender;
+            border: 1px solid black;
+            margin: 50px auto;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function showPopup(index) {
+            var popups = document.getElementsByClassName('popup');
+            if (index < popups.length) {
+                popups[index].style.display = 'block';
+            } else {
+                var message = document.getElementById('message');
+                message.style.display = 'block';
+            }
+        }
+
+        function hidePopup(index) {
+            var popups = document.getElementsByClassName('popup');
+            if (index < popups.length) {
+                popups[index].style.display = 'none';
+                showPopup(index + 1);
+            } else {
+                var message = document.getElementById('message');
+                message.style.display = 'block';
+            }
+        }
+    </script>
 </head>
 <body>
-	<div id="popup1" class="popup">
-		<h3>What if...</h3>
-		<p>Tayo talaga?</p>
-		<button onclick="document.getElementById('popup2').style.display = 'block'; this.style.display = 'none';">Yes</button>
-		<button onclick="document.getElementById('popup3').style.display = 'block'; this.style.display = 'none';">No</button>
-	</div>
+    <audio src="background_music.mp3" autoplay loop></audio>
+    <h1>SAYING THE UNSAID WORDS</h1>
+    <a href="#" onclick="showPopup(0)">Click here</a>
 
-	<div id="popup2" class="popup">
-		<h3>What if...</h3>
-		<p>Tayo talaga ang para sa isa't isa?</p>
-		<button onclick="document.getElementById('popup4').style.display = 'block'; this.style.display = 'none';">Yes</button>
-		<button onclick="document.getElementById('popup5').style.display = 'block'; this.style.display = 'none';">No</button>
-	</div>
-	<div id="popup4" class="popup">
-		<h3>What if...</h3>
-		<p>we try?</p>
-		<button onclick="showConfession(); this.style.display = 'none';">Yes</button>
-	</div> 
-	 <div id="confession" style="display: none;">
-		<h2>Dear Janine,</h2>
-		<p>I wanted to take this opportunity to confess my feelings for you. You are always on my mind, and I can't help but smile whenever I see you.</p>
-		<p>Life feels so much brighter when you're around, and I find myself longing to spend more time with you. Your laughter and the way you light up a room make my heart skip a beat.</p>
-		<p>Janine, would you do me the honor of being more than just friends? I can't imagine a future without you in it, and I would be overjoyed if you felt the same way.</p>
-		<p>Please let me know your thoughts, and I hope this confession doesn't affect our friendship negatively. You mean the world to me.</p>
-		<p>With all my love,</p>
-		<p>Kent</p>
-	</div>
+    <div class="popup" style="display: none;">
+        <h2>...</h2>
+        <p>You know what?</p>
+        <button onclick="hidePopup(0)">ok</button>
+    </div>
 
-	<script>
-		document.getElementById("popup1").style.display = "block";
-	</script>
+    <div class="popup" style="display: none;">
+        <h2>...</h2>
+        <p>Sa dinami-rami kong what if sa buhay</p>
+        <button onclick="hidePopup(1)">ok</button>
+    </div>
+
+    <div class="popup" style="display: none;">
+        <h2>...</h2>
+        <p>Isang what if lang ang gusto kong sabihin sayo</p>
+        <button onclick="hidePopup(2)">ok</button>
+    </div>
+
+       
+         <div class="popup" style="display: none;">
+        <h2>What if...</h2>
+        <p>What if i told you that I've fallen? </p>
+        <button onclick="hidePopup(3)">ok</button>
+    </div>
+
+    <div id="message" style="display: none;">
+        <h2></h2>
+        <p>Dear Janine,</p>
+        <p>I hope this message finds you well. There's something I've been wanting to share with you, and I couldn't keep it to myself any longer. Over the time we've spent together, you've become much more than just a friend to me. Your presence brings a warmth and joy into my life that I can't ignore. I find myself thinking about you constantly, and it's time I confess that my feelings for you have grown deeper. You have a way of making me smile, laugh, and feel understood like no one else does. I cherish our friendship immensely, and I want you to know that I'm open to exploring the possibility of something more if you feel the same way. Whatever your response may be, I value our connection and hope it can withstand this revelation. Please take your time to process this, and I'll be here, ready to talk whenever you're comfortable.</p>
+        <p>With sincerest affection,</p>
+        <p>Kent</p>
+    </div>
 </body>
 </html>
